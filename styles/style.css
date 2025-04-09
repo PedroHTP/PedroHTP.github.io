@@ -1,0 +1,296 @@
+@font-face {
+    font-family: 'Thesignature';
+    src: url("../fonts/thesignature/Thesignature.ttf");
+    font-weight: 400;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+}
+
+.fontAss {
+    font-family: 'Thesignature', sans-serif;
+    font-size: 3em;
+    width: 100%;
+    justify-content: center;
+    border-bottom: 2px solid black;
+    p {
+        margin: 1% 1% 1% 1%;
+    }
+    :after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: rgba(0, 0, 0, 0.485);
+        position: relative;
+        bottom: 30px;
+    }
+
+}
+
+.flex {
+    display: flex;
+}
+
+.disabled {
+    display: none;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-space {
+    justify-content: space-around;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.justify-end {
+    width: 100%;
+    justify-content: end;
+}
+
+header {
+    display: flex;
+    color: antiquewhite;
+    background-color: black;
+    align-items: center;
+    justify-content: start;
+    height: fit-content;
+    padding: 1em 2em 1em 2em;
+    gap: 1em;
+    margin: 1%;
+    border-radius: 100px;
+
+    .logo {
+        width: 5%;
+
+        #logo {
+            border-radius: 50px;
+        }
+    }
+
+    .header_title {
+        width: 10%;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin: 0;
+    }
+
+    ul {
+        width: 20%;
+        display: flex;
+        list-style-type: none;
+        padding: 0.5%;
+        margin: 0;
+        li {
+            width: fit-content fixed;
+            height: fit-content fixed;
+            margin: 0 1em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            a {
+                text-decoration: none;
+                color: whitesmoke;
+                padding: 20%;
+                display: flex;
+                position: relative; /* Necessário para o posicionamento do :after */
+                &:hover {
+                    color: rgb(209, 208, 208);
+                    &:after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        left: 100%;
+                        top: 55%; /* Começa fora da área visível */
+                        transform: translateY(100%); /* Posição inicial */
+                        width: 1px;
+                        height: 1.5rem;
+                        background-color: rgb(255, 0, 0);
+                        animation: slideUp 0.5s ease forwards; /* Aplica a animação */
+                    }
+                }
+            }
+        }
+    }
+
+    .pesquisa {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 1em;
+        
+        input {
+            border-radius: 10px;
+            border-start-end-radius: 0;
+            border-end-end-radius: 0;
+            padding: 0.5em 1em;
+            border: none;
+            height: 90%;
+        }
+
+        button {
+            background-color: blue;
+            border-radius: 10px;
+            border-end-start-radius: 0;
+            border-start-start-radius: 0;
+            padding: 0.6em 0.6em 0.6em 0.6em;
+            height: 90%;
+            pointer-events: all;
+
+            display: flex;
+            align-items: center;
+            color: whitesmoke;
+            border: none;
+            &:hover {
+                background-color: rgb(0, 0, 202);
+            }
+        }
+    }
+    .right_side {
+        width: 65%;
+
+        .login, .conta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+            
+            a {
+                text-decoration: none;
+                color: whitesmoke;
+                &:hover {
+                    color: rgb(209, 208, 208);
+                }
+            }
+            #registrar {
+                background-color: blue;
+                border-radius: 10px;
+                padding: 0.5em 1em;
+                color: whitesmoke;
+                &:hover {
+                    background-color: darkblue;
+                }
+            }
+        }
+    }
+
+}
+.perfil {
+    cursor: pointer;
+    align-items: center;
+    gap: 5%;
+    a {
+        text-decoration: none;
+        color: whitesmoke;
+        &:hover {
+            color: rgb(209, 208, 208);
+            
+        }
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+}
+
+.fit-content {
+    width: fit-content;
+}
+
+.modal_style {
+    background-color: rgb(48, 48, 77);
+    color: whitesmoke;
+    div {
+        border-color: rgb(15, 13, 29);
+    }
+}
+
+main {
+    display: flex;
+    width: fit-content;
+    background-color: rgb(138, 152, 152);
+    section {
+
+        background-color: rgb(122, 144, 122);
+        display: flex;
+        align-items: center;
+        margin: 1em;
+        padding: 1em;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: fit-content;
+            }
+    }
+    
+    aside {
+        width: 30%;
+        padding: 1em;
+        background-color: rgb(52, 52, 50);
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        margin: 1em 0em 1em 0em;
+    }
+
+    .biografia {
+        width: 70%;
+        .bio {
+            text-align: justify;
+            width: auto;
+        }
+    }
+}
+
+footer {
+    background-color: gainsboro;
+}
+
+.redes {
+    margin-top: 1%;
+    justify-self: center;
+    width: 12%;
+}
+
+.logoRedes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 2.5em;
+        height: 2.5em;
+    }
+}
+
+.condicoes {
+    justify-content: center;
+    gap: 1%;
+    padding-top: 1%;
+    width: 100%;
+    color: gray;
+    div {
+        width: fit-content;
+    }
+}
